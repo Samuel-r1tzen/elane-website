@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+
+  --color-obsidian: #0B0B0A;
+  --color-ivory: #F3F0E9;
+  --color-sand: #C9BDAA;
+  --color-copper: #A66A45;
+  --color-stone: #77736D;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #0B0B0A;
+    color: #F3F0E9;
+  }
+
+  body {
+    background-color: #0B0B0A;
+    color: #F3F0E9;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0A;
+}
+::-webkit-scrollbar-thumb {
+  background: #252422;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #77736D;
+}
+
+/* Lenis smooth scrolling recommendations */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* User Design System Tokens & Animations */
+:focus-visible {
+  outline: 1px solid #A66A45;
+  outline-offset: 3px;
+}
+
+.link-u {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+.link-u::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-u:hover::after,
+.link-u:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.scroll-pulse-line::after {
+  content: '';
+  width: 1px;
+  height: 56px;
+  background: linear-gradient(180deg, #77736D, transparent);
+  animation: scrollPulse 2.4s cubic-bezier(0.65, 0.05, 0.36, 1) infinite;
+}
+
+/* Placeholder Art Direction styling */
+.ph {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #111110;
+}
+.ph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(58% 48% at var(--px, 60%) var(--py, 30%), rgba(201, 189, 170, 0.20), transparent 64%),
+    radial-gradient(46% 62% at 20% 80%, rgba(166, 106, 69, 0.12), transparent 66%),
+    linear-gradient(155deg, #1e1c19 0%, #0b0b0a 52%, #171513 100%);
+  transform: scale(1.06);
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ph--mid::before {
+  background:
+    radial-gradient(56% 46% at var(--px, 60%) var(--py, 30%), rgba(243, 240, 233, 0.16), transparent 64%),
+    radial-gradient(50% 60% at 24% 76%, rgba(11, 11, 10, 0.5), transparent 70%),
+    linear-gradient(155deg, #514940 0%, #2a2621 55%, #3a342d 100%);
+}
+.ph--light::before {
+  background:
+    radial-gradient(56% 46% at var(--px, 60%) var(--py, 30%), rgba(255, 255, 255, 0.6), transparent 62%),
+    radial-gradient(50% 60% at 22% 78%, rgba(11, 11, 10, 0.16), transparent 68%),
+    linear-gradient(155deg, #f2ede3 0%, #cfc5b3 58%, #e4ddd0 100%);
+}
+.ph__fig {
+  position: absolute;
+  left: var(--fx, 50%);
+  top: var(--fy, 54%);
+  width: 38%;
+  height: 72%;
+  transform: translate(-50%, -50%) rotate(var(--rot, -3deg));
+  background: linear-gradient(180deg, rgba(243, 240, 233, 0.18), rgba(243, 240, 233, 0.03) 52%, transparent 82%);
+  border-radius: 48% 48% 42% 42% / 36% 36% 64% 64%;
+  filter: blur(26px);
+  opacity: 0.9;
+}
+.ph__sheen {
+  position: absolute;
+  inset: -25%;
+  background: linear-gradient(104deg, transparent 38%, rgba(243, 240, 233, 0.07) 50%, transparent 62%);
+  pointer-events: none;
+}
+.ph__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+.ph__label {
+  position: absolute;
+  left: 1rem;
+  bottom: 0.9rem;
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(243, 240, 233, 0.5);
+  z-index: 2;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

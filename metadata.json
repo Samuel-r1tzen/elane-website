@@ -1,0 +1,6 @@
+{
+  "name": "ÉLANE — Wear The Movement",
+  "description": "Contemporary luxury fashion label built around movement, form, individuality and understated luxury.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

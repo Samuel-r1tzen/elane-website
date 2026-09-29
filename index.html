@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" class="bg-[#0B0B0A] text-[#F3F0E9] antialiased selection:bg-[#A66A45] selection:text-[#F3F0E9]">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ÉLANE — Wear The Movement</title>
+    <meta name="description" content="Contemporary luxury fashion label built around movement, form, individuality and understated luxury." />
+    <meta property="og:title" content="ÉLANE — Wear The Movement" />
+    <meta property="og:description" content="Contemporary luxury fashion label built around movement, form, individuality and understated luxury." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <script>
+      // Fix GitHub Pages relative paths: ensure trailing slash so ./assets resolves correctly
+      if (window.location.hostname.includes('github.io') && window.location.pathname && !window.location.pathname.endsWith('/') && !window.location.pathname.split('/').pop().includes('.')) {
+        window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+      }
+    </script>
+  </head>
+  <body class="bg-[#0B0B0A] text-[#F3F0E9] min-h-screen overflow-x-hidden">
+    <div id="root">
+      <div id="gh-pages-fallback" style="display:none;min-height:100vh;background:#0B0B0A;color:#F3F0E9;padding:48px 24px;font-family:sans-serif;text-align:center;">
+        <div style="max-width:540px;margin:80px auto;border:1px solid #252422;padding:32px;background:#121210;">
+          <h1 style="font-size:24px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;color:#F3F0E9;">ÉLANE</h1>
+          <p style="color:#C9BDAA;font-size:14px;line-height:1.6;margin-bottom:20px;">
+            GitHub Pages is loading the uncompiled repository root. A compiled production build or GitHub Actions workflow is required.
+          </p>
+          <div style="text-align:left;background:#161614;border:1px solid #252422;padding:16px;font-size:12px;font-family:monospace;color:#77736D;line-height:1.6;">
+            <p style="color:#F3F0E9;margin-bottom:8px;font-weight:bold;">Quick Fix:</p>
+            <p>1. In GitHub Repository: <strong>Settings &gt; Pages</strong></p>
+            <p>2. Under <strong>Build and deployment &gt; Source</strong>, choose: <span style="color:#A66A45;font-weight:bold;">GitHub Actions</span></p>
+            <p>3. Or run <code style="color:#F3F0E9;">npm run deploy</code> to publish via gh-pages.</p>
+          </div>
+        </div>
+      </div>
+      <script>
+        setTimeout(function() {
+          var fb = document.getElementById('gh-pages-fallback');
+          var root = document.getElementById('root');
+          if (fb && (!root.children || root.children.length <= 1 || (root.children.length === 1 && root.children[0].id === 'gh-pages-fallback'))) {
+            fb.style.display = 'block';
+          }
+        }, 2500);
+      </script>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
